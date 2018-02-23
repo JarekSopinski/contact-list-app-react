@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class ContactList extends Component {
 
     render() {
-        const { contacts } = this.props;
+        const { contacts, removeContact } = this.props;
         return (
                 <ul>
                     {
@@ -16,6 +16,8 @@ class ContactList extends Component {
                                 {contact.email}
                                 <br></br>
                                 {contact.category}
+                                <br></br>
+                                <button onClick={ () => removeContact(contact.id) }>Remove</button>
                             </li>
                         )
                     }

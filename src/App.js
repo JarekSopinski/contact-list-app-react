@@ -29,12 +29,18 @@ class App extends Component {
     }; // this function is passed as props /addContact={this.addContact}/ to <AddContactForm/> so that
     // it can work based on states from this component
 
+    removeContact = contactId => {
+        this.setState({
+            contacts: this.state.contacts.filter(contact => contact.id !== contactId)
+        })
+    };
+
     render() {
         return (
             <React.Fragment>
                 <h1>Contact list</h1>
                 <AddContactForm addContact={this.addContact}/>
-                <ContactList contacts={this.state.contacts}/>
+                <ContactList contacts={this.state.contacts} removeContact={this.removeContact}/>
             </React.Fragment>
         )
     };

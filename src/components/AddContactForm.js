@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
+const initialState = {
+    newName: '',
+    newPhone: '',
+    newEmail: '',
+    newCategory: '',
+}; // newly submitted values are being kept here
+
 class AddContactForm extends Component {
 
-    state = {
-        newName: '',
-        newPhone: '',
-        newEmail: '',
-        newCategory: '',
-    }; // newly submitted values are being kept here
+    state = initialState;
 
     handleChange = ({ target: { name, value } }) => {
         this.setState({
@@ -32,7 +34,8 @@ class AddContactForm extends Component {
     handleSubmit = event => {
         event.preventDefault(); // prevent reloading after submitting
         //console.log(this.state) // see submitted values
-        this.props.addContact(this.state)
+        this.props.addContact(this.state);
+        this.setState(initialState)
     };
 
     render() {
@@ -74,7 +77,9 @@ class AddContactForm extends Component {
                 <button>Add new contact</button>
             </form>
         )
-    }
+    };
+
+
 
 }
 
