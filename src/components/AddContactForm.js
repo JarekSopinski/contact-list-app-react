@@ -51,28 +51,28 @@ class AddContactForm extends Component {
                     value={newName}
                     onChange={this.handleChange}
                 />
-                <br></br>
+                <br/>
 
                 <span>Phone:&nbsp;</span>
                 <input
                     name="newPhone"
                     value={newPhone}
                     onChange={this.handleChange}/>
-                <br></br>
+                <br/>
 
                 <span>E-mail:&nbsp;</span>
                 <input
                     name="newEmail"
                     value={newEmail}
                     onChange={this.handleChange}/>
-                <br></br>
+                <br/>
 
                 <span>Categories:&nbsp;</span>
                 <input
                     name="newCategory"
                     value={newCategory}
                     onChange={this.handleChange}/>
-                <br></br>
+                <br/>
 
                 <button>Add new contact</button>
             </form>
