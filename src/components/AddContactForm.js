@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 class AddContactForm extends Component {
 
     state = {
-        contactName: '',
-        contactPhone: '',
-        contactEmail: '',
-        contactCategory: '',
+        newName: '',
+        newPhone: '',
+        newEmail: '',
+        newCategory: '',
     }; // newly submitted values are being kept here
 
     handleChange = ({ target: { name, value } }) => {
@@ -15,44 +15,59 @@ class AddContactForm extends Component {
         })
     }; // pass new values to this component's state
 
+    /*
+    Above function can also be written like this (longer, but easier to understand):
+
+    handleChange = event => {
+    const name = event.target.name
+    const value = event.target.value
+
+    const patch = {}
+    patch[name] = value
+
+    this.setState(patch)
+  }
+     */
+
     handleSubmit = event => {
         event.preventDefault(); // prevent reloading after submitting
         //console.log(this.state) // see submitted values
+        this.props.addContact(this.state)
     };
 
     render() {
 
-        const { contactName, contactPhone, contactEmail, contactCategory } = this.state;
+        const { newName, newPhone, newEmail, newCategory } = this.state;
 
         return (
             <form onSubmit={this.handleSubmit}>
 
                 <span>Name:&nbsp;</span>
                 <input
-                    name="contactName"
-                    value={contactName}
+                    name="newName"
+                    value={newName}
                     onChange={this.handleChange}
                 />
                 <br></br>
 
                 <span>Phone:&nbsp;</span>
                 <input
-                    name="contactPhone"
-                    value={contactPhone}
+                    name="newPhone"
+                    value={newPhone}
                     onChange={this.handleChange}/>
                 <br></br>
 
                 <span>E-mail:&nbsp;</span>
                 <input
-                    name="contactEmail"
-                    value={contactEmail}
+                    name="newEmail"
+                    value={newEmail}
                     onChange={this.handleChange}/>
                 <br></br>
 
                 <span>Categories:&nbsp;</span>
                 <input
-                    name="contactCategory"
-                    value={contactCategory}
+                    name="newCategory"
+                    value={newCategory}
                     onChange={this.handleChange}/>
                 <br></br>
 
