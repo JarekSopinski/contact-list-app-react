@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import AddContactForm from "./components/AddContactForm";
+import ContactList from "./components/ContactList";
 
 class App extends Component {
 
@@ -19,6 +21,7 @@ class App extends Component {
             <React.Fragment>
                 <h1>Contact list</h1>
                 <AddContactForm/>
+                <ContactList contacts={this.state.contacts}/>
             </React.Fragment>
         )
     };
