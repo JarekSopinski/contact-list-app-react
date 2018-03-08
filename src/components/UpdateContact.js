@@ -6,7 +6,26 @@ class UpdateContact extends Component {
 
         return (
             <React.Fragment>
-                <p>Update</p>
+                <form>
+
+                    <span>Change name:&nbsp;</span>
+                    <input/>
+                    <br/>
+
+                    <span>Change phone:&nbsp;</span>
+                    <input/>
+                    <br/>
+
+                    <span>Change e-mail:&nbsp;</span>
+                    <input/>
+                    <br/>
+
+                    <span>Change categories:&nbsp;</span>
+                    <input/>
+                    <br/>
+
+                    <button>Submit changes</button>
+                </form>
             </React.Fragment>
         );
 
