@@ -8,7 +8,14 @@ class App extends Component {
     // INITIAL STATE
 
     state = {
-        contacts: []
+        contacts: [
+            {id: '1', name: 'Luke Skywalker', phone: '111-111-111', email: 'luke@gmail.com', category: 'family'},
+            {id: '2', name: 'Darth Vader', phone: '222-222-222', email: 'vader@gmail.com', category: 'family'},
+            {id: '3', name: 'Leia Organa', phone: '333-333-333', email: 'leia@gmail.com', category: 'family'},
+            {id: '4', name: 'Han Solo', phone: '444-444-444', email: 'han@gmail.com', category: 'job'},
+            {id: '5', name: 'Lando Carlissian', phone: '555-555-555', email: 'lando@gmail.com', category: 'job'},
+            {id: '6', name: 'Obi-wan Kenobi', phone: '777-777-777', email: 'kenobi@gmail.com', category: 'job'}
+            ] // indexes should be strings, not numbers, otherwise there will be problems with comparing
     };
 
     // CUSTOM FUNCTIONS
@@ -20,15 +27,15 @@ class App extends Component {
 
         this.setState({
             contacts: this.state.contacts.concat({
-                id: Date.now().toString(32), // generate id based on current date
+                id: Date.now().toString(32), // generate id based on current date, than change it to string
                 name: newName,
                 phone: newPhone,
                 email: newEmail,
                 category: categoriesInBrackets
             })
         })
-    }; // this function is passed as props /addContact={this.addContact}/ to <AddContactForm/> so that
-    // it can work based on states from this component
+    }; // this function is passed as props /addContact={this.addContact}/ to <AddContactForm/> (child) so that
+    // it can update contact list based on new data send from child
 
     removeContact = contactId => {
         this.setState({
@@ -47,6 +54,7 @@ class App extends Component {
 
         return wordsInBrackets.join(' ')
     }; // modifies strings form 'category' input (removes commas, adds brackets)
+    // used as a callback inside addContact
 
 
 
