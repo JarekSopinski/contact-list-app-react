@@ -5,7 +5,7 @@ const initialState = {
     newPhone: '',
     newEmail: '',
     newCategory: '',
-}; // newly submitted values are being kept here
+}; // used to revert to clear state and clear inputs after submitting
 
 class AddContactForm extends Component {
 
@@ -35,7 +35,7 @@ class AddContactForm extends Component {
         event.preventDefault(); // prevent reloading after submitting
         //console.log(this.state) // see submitted values
         this.props.addContact(this.state);
-        this.setState(initialState)
+        this.setState(initialState) // state and inputs are returned to initial (cleared)
     };
 
     render() {
