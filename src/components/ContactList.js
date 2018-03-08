@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import UpdateContact from "./UpdateContact";
+
 class ContactList extends Component {
 
     handleRemove = event => {
@@ -28,6 +30,7 @@ class ContactList extends Component {
                                 <button
                                     data-contact-id={contact.id}
                                     onClick={ this.handleRemove }>Remove</button>
+                                <UpdateContact/>
                             </li>
                         )
                     }

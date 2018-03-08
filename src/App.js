@@ -65,7 +65,9 @@ class App extends Component {
             <React.Fragment>
                 <h1>Contact list</h1>
                 <AddContactForm addContact={this.addContact}/>
-                <ContactList contacts={this.state.contacts} removeContact={this.removeContact}/>
+                <ContactList contacts={this.state.contacts}
+                             removeContact={this.removeContact}
+                />
             </React.Fragment>
         )
     };
