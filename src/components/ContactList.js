@@ -43,7 +43,8 @@ class ContactList extends Component {
                                 </button>
                                 <br/>
                                 &nbsp;
-                                <UpdateContact/>
+                                <UpdateContact
+                                updateContact={this.props.updateContact}/>
                             </li>
                         )
                     }

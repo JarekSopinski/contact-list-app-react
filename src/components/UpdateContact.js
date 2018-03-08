@@ -20,7 +20,7 @@ class UpdateContact extends Component {
     handleSubmit = event => {
         event.preventDefault(); // prevent reloading after submitting
         //console.log(this.state) // see submitted values
-        //this.props.addContact(this.state);
+        this.props.updateContact(this.state);
         this.setState(initialState);
         console.log(this.state);
     };

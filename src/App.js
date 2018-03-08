@@ -35,7 +35,11 @@ class App extends Component {
             })
         })
     }; // this function is passed as props /addContact={this.addContact}/ to <AddContactForm/> (child) so that
-    // it can update contact list based on new data send from child
+    // it can update contact list based on new data sent from child
+
+    updateContact = ( { updatedName, updatedPhone, updatedEmail, updatedCategory } ) => {
+        console.log(updatedName, updatedPhone, updatedEmail, updatedCategory);
+    };
 
     removeContact = contactId => {
         this.setState({
@@ -67,6 +71,7 @@ class App extends Component {
                 <AddContactForm addContact={this.addContact}/>
                 <ContactList contacts={this.state.contacts}
                              removeContact={this.removeContact}
+                             updateContact={this.updateContact}
                 />
             </React.Fragment>
         )
