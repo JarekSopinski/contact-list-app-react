@@ -4,14 +4,6 @@ import UpdateContact from "./UpdateContact";
 
 class ContactList extends Component {
 
-    contactItemStyle = {
-      display: 'inline-block',
-        margin: '10px',
-        padding: '10px',
-        backgroundColor: 'yellow',
-        border: '2px solid red'
-    };
-
     handleRemove = event => {
         const contactId = event.target.dataset.contactId;
         this.props.removeContact(contactId);
@@ -23,18 +15,19 @@ class ContactList extends Component {
         const { contacts } = this.props;
 
         return (
-                <ul>
+                <ul className={"contactList"}>
                     {
                         contacts.map(contact =>
                             <li key={contact.id}
-                            style={this.contactItemStyle}>
-                                <strong>{contact.name}</strong>
+                            className={"contactItem"}>
+
+                                <span><strong>{contact.name}</strong></span>
                                 <br/>
-                                {contact.phone}
+                                <span>{contact.phone}</span>
                                 <span>,&nbsp;</span>
-                                {contact.email}
+                                <span>{contact.email}</span>
                                 <br/>
-                                {contact.category}
+                                <span>{contact.category}</span>
                                 <br/>
                                 <button
                                     data-contact-id={contact.id}
@@ -43,6 +36,7 @@ class ContactList extends Component {
                                 </button>
                                 <br/>
                                 &nbsp;
+
                                 <UpdateContact
                                 updateContact={this.props.updateContact}
                                 currentContact = {contact}

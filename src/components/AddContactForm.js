@@ -46,40 +46,46 @@ class AddContactForm extends Component {
             <div id={"AddContactForm"}>
                 <form onSubmit={this.handleSubmit}>
 
+
                     <span>Name:&nbsp;</span>
+                    <br/>
                     <input
                         name="newName"
                         value={newName}
                         onChange={this.handleChange}
-                        className={"input"}
                     />
 
+                    <br/>
+
                     <span>Phone:&nbsp;</span>
+                    <br/>
                     <input
                         name="newPhone"
                         value={newPhone}
                         onChange={this.handleChange}
-                        className={"input"}
                     />
 
                     <br/>
 
                     <span>E-mail:&nbsp;</span>
+                    <br/>
                     <input
                         name="newEmail"
                         value={newEmail}
                         onChange={this.handleChange}
-                        className={"input"}
                     />
 
+                    <br/>
+
                     <span>Categories:&nbsp;</span>
+                    <br/>
                     <input
                         name="newCategory"
                         value={newCategory}
                         onChange={this.handleChange}
-                        className={"input"}
                     />
 
+                    <br/>
                     <br/>
 
                     <button

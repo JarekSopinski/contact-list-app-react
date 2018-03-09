@@ -6,16 +6,55 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #5BC0EB;
 }
 
 #AddContactForm {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
   padding: 30px;
-  display: flex;
-  justify-content: center;
   background-color: #FDE74C;
   border: 5px solid #E55934;
+  border-radius: 20px;
 }
 
-#AddContactForm .input {
+#AddContactForm form {
+  text-align: center;
+}
+
+#AddContactForm form input {
+  margin-bottom: 5px;
+}
+
+.addInput {
+  display: inline-block;
   margin: 5px;
+}
+
+.contactList {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  -webkit-padding-start: 0
+}
+
+.contactItem {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  background-color: #FDE74C;
+  border: 5px solid #E55934;
+  border-radius: 20px;
+}
+
+.contactItem input {
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 576px) {
+  #AddContactForm {
+    width: 70%;
+  }
 }
