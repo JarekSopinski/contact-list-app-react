@@ -9,12 +9,12 @@ class App extends Component {
 
     state = {
         contacts: [
-            {id: '1', name: 'Luke Skywalker', phone: '111-111-111', email: 'luke@gmail.com', category: 'family'},
-            {id: '2', name: 'Darth Vader', phone: '222-222-222', email: 'vader@gmail.com', category: 'family'},
-            {id: '3', name: 'Leia Organa', phone: '333-333-333', email: 'leia@gmail.com', category: 'family'},
-            {id: '4', name: 'Han Solo', phone: '444-444-444', email: 'han@gmail.com', category: 'job'},
-            {id: '5', name: 'Lando Carlissian', phone: '555-555-555', email: 'lando@gmail.com', category: 'job'},
-            {id: '6', name: 'Obi-wan Kenobi', phone: '777-777-777', email: 'kenobi@gmail.com', category: 'job'}
+            {id: '1', name: 'Luke Skywalker', phone: '111-111-111', email: 'luke@gmail.com', category: '[jedi][padawans][rebels]'},
+            {id: '2', name: 'Darth Vader', phone: '222-222-222', email: 'vader@gmail.com', category: '[sith][empire]'},
+            {id: '3', name: 'Leia Organa', phone: '333-333-333', email: 'leia@gmail.com', category: '[senat][rebels]'},
+            {id: '4', name: 'Han Solo', phone: '444-444-444', email: 'han@gmail.com', category: '[smugglers][rebels]'},
+            {id: '5', name: 'Lando Carlissian', phone: '555-555-555', email: 'lando@gmail.com', category: '[gamblers][rebels]'},
+            {id: '6', name: 'Obi-wan Kenobi', phone: '777-777-777', email: 'kenobi@gmail.com', category: '[jedi][masters]'}
             ] // indexes should be strings, not numbers, otherwise there will be problems with comparing
     };
 
@@ -36,16 +36,16 @@ class App extends Component {
         })
     };
 
-    updateContact = ( { updatedName, updatedPhone, updatedEmail, updatedCategory }, contactID ) => {
+    updateContact = ( { id, updatedName, updatedPhone, updatedEmail, updatedCategory } ) => {
         // 1st param - new values, 2nd param - an identifier which connects new values to correct contact
-        console.log(updatedName, updatedPhone, updatedEmail, updatedCategory, contactID);
+        //console.log(updatedName, updatedPhone, updatedEmail, updatedCategory, contactID);
 
         // as in addContact, categories are modified to be displayed in brackets
         const categoriesInBrackets = this.handleCategoriesNames(updatedCategory);
 
         // new object with updated values, which will replace old one:
         const updatedContact = {
-            id: contactID,
+            id: id,
             name: updatedName,
             phone: updatedPhone,
             email: updatedEmail,
@@ -53,13 +53,13 @@ class App extends Component {
         };
 
         // creating an array of new (updated) objects; if ID test passes, old object is replaced with new one (updatedContact)
-        const updatedContacts = this.state.contacts.map(contact => contact.id === contactID ?
+        const updatedContacts = this.state.contacts.map(contact => contact.id === updatedContact.id ?
             updatedContact
             :
             contact
         );
 
-        console.log(updatedContacts);
+        //console.log(updatedContacts);
 
         // state is changed to display updated array
         this.setState({

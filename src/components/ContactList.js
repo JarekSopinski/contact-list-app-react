@@ -45,8 +45,11 @@ class ContactList extends Component {
                                 &nbsp;
                                 <UpdateContact
                                 updateContact={this.props.updateContact}
-                                contactID = {contact.id}
-                                // contact id needs to be passed down, so that we can connect this contact to its updated values
+                                currentContact = {contact}
+                                /*
+                                Current contact value needs to be passed to update, so that while updating
+                                we can compare IDs and save old values (in case user leaves empty input).
+                                */
                                 />
                             </li>
                         )

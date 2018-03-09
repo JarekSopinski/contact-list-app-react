@@ -10,22 +10,36 @@ const initialState = {
 class UpdateContact extends Component {
 
     state = initialState;
-    contactID = this.props.contactID;
+    currentContact = this.props.currentContact;
 
-    handleChange = ({ target: { name, value } }) => {
-        this.setState({
-            [name]: value
-        });
-    }; // pass new values to this component's state
+    handleChange = event => {
+        const name = event.target.name;
+        const value = event.target.value;
+
+        const updatedContact = {};
+        updatedContact[name] = value;
+
+        this.setState(updatedContact)
+    };
 
     handleSubmit = event => {
         event.preventDefault(); // prevent reloading after submitting
-        //console.log(this.state) // see submitted values
-        this.props.updateContact(this.state, this.contactID);
-        // we add ID of parent contact (2nd parameter) as an identifier
+
+        const updatedContact = this.state;
+        updatedContact.id = this.currentContact.id;
+
+        console.log(updatedContact);
+
+        // If user left some inputs empty updatedContact will keep old values:
+        // (I should change this to disabling submit button in next version)
+        !updatedContact.updatedName ? updatedContact.updatedName = this.currentContact.name : null;
+        !updatedContact.updatedPhone ? updatedContact.updatedPhone = this.currentContact.phone : null;
+        !updatedContact.updatedEmail ? updatedContact.updatedEmail = this.currentContact.email : null;
+        !updatedContact.updatedCategory ? updatedContact.updatedCategory = this.currentContact.category : null;
+
+        this.props.updateContact(updatedContact);
         this.setState(initialState);
-        //console.log(this.state);
-        //console.log(this.contactID)
+
     };
 
     render() {
