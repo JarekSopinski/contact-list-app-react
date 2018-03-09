@@ -43,39 +43,50 @@ class AddContactForm extends Component {
         const { newName, newPhone, newEmail, newCategory } = this.state;
 
         return (
-            <form onSubmit={this.handleSubmit}>
+            <div id={"AddContactForm"}>
+                <form onSubmit={this.handleSubmit}>
 
-                <span>Name:&nbsp;</span>
-                <input
-                    name="newName"
-                    value={newName}
-                    onChange={this.handleChange}
-                />
-                <br/>
+                    <span>Name:&nbsp;</span>
+                    <input
+                        name="newName"
+                        value={newName}
+                        onChange={this.handleChange}
+                        className={"input"}
+                    />
 
-                <span>Phone:&nbsp;</span>
-                <input
-                    name="newPhone"
-                    value={newPhone}
-                    onChange={this.handleChange}/>
-                <br/>
+                    <span>Phone:&nbsp;</span>
+                    <input
+                        name="newPhone"
+                        value={newPhone}
+                        onChange={this.handleChange}
+                        className={"input"}
+                    />
 
-                <span>E-mail:&nbsp;</span>
-                <input
-                    name="newEmail"
-                    value={newEmail}
-                    onChange={this.handleChange}/>
-                <br/>
+                    <br/>
 
-                <span>Categories:&nbsp;</span>
-                <input
-                    name="newCategory"
-                    value={newCategory}
-                    onChange={this.handleChange}/>
-                <br/>
+                    <span>E-mail:&nbsp;</span>
+                    <input
+                        name="newEmail"
+                        value={newEmail}
+                        onChange={this.handleChange}
+                        className={"input"}
+                    />
 
-                <button>Add new contact</button>
-            </form>
+                    <span>Categories:&nbsp;</span>
+                    <input
+                        name="newCategory"
+                        value={newCategory}
+                        onChange={this.handleChange}
+                        className={"input"}
+                    />
+
+                    <br/>
+
+                    <button
+                        className={'button'}
+                    >Add new contact</button>
+                </form>
+            </div>
         )
     };
 

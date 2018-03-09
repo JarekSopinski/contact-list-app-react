@@ -1,5 +1,21 @@
+.button {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+#AddContactForm {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  background-color: #FDE74C;
+  border: 5px solid #E55934;
+}
+
+#AddContactForm .input {
+  margin: 5px;
 }

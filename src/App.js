@@ -93,7 +93,6 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <h1>Contact list</h1>
                 <AddContactForm
                     addContact={this.addContact}
                 />
