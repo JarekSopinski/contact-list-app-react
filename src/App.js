@@ -34,11 +34,37 @@ class App extends Component {
                 category: categoriesInBrackets
             })
         })
-    }; // this function is passed as props /addContact={this.addContact}/ to <AddContactForm/> (child) so that
-    // it can update contact list based on new data sent from child
+    };
 
-    updateContact = ( { updatedName, updatedPhone, updatedEmail, updatedCategory } ) => {
-        console.log(updatedName, updatedPhone, updatedEmail, updatedCategory);
+    updateContact = ( { updatedName, updatedPhone, updatedEmail, updatedCategory }, contactID ) => {
+        // 1st param - new values, 2nd param - an identifier which connects new values to correct contact
+        console.log(updatedName, updatedPhone, updatedEmail, updatedCategory, contactID);
+
+        // as in addContact, categories are modified to be displayed in brackets
+        const categoriesInBrackets = this.handleCategoriesNames(updatedCategory);
+
+        // new object with updated values, which will replace old one:
+        const updatedContact = {
+            id: contactID,
+            name: updatedName,
+            phone: updatedPhone,
+            email: updatedEmail,
+            category: categoriesInBrackets
+        };
+
+        // creating an array of new (updated) objects; if ID test passes, old object is replaced with new one (updatedContact)
+        const updatedContacts = this.state.contacts.map(contact => contact.id === contactID ?
+            updatedContact
+            :
+            contact
+        );
+
+        console.log(updatedContacts);
+
+        // state is changed to display updated array
+        this.setState({
+            contacts: updatedContacts
+        })
     };
 
     removeContact = contactId => {
@@ -58,7 +84,7 @@ class App extends Component {
 
         return wordsInBrackets.join(' ')
     }; // modifies strings form 'category' input (removes commas, adds brackets)
-    // used as a callback inside addContact
+    // used as a callback inside addContact and updateContact
 
 
 
@@ -68,10 +94,13 @@ class App extends Component {
         return (
             <React.Fragment>
                 <h1>Contact list</h1>
-                <AddContactForm addContact={this.addContact}/>
-                <ContactList contacts={this.state.contacts}
-                             removeContact={this.removeContact}
-                             updateContact={this.updateContact}
+                <AddContactForm
+                    addContact={this.addContact}
+                />
+                <ContactList
+                    contacts={this.state.contacts}
+                    removeContact={this.removeContact}
+                    updateContact={this.updateContact}
                 />
             </React.Fragment>
         )

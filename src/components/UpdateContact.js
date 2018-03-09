@@ -10,6 +10,7 @@ const initialState = {
 class UpdateContact extends Component {
 
     state = initialState;
+    contactID = this.props.contactID;
 
     handleChange = ({ target: { name, value } }) => {
         this.setState({
@@ -20,9 +21,11 @@ class UpdateContact extends Component {
     handleSubmit = event => {
         event.preventDefault(); // prevent reloading after submitting
         //console.log(this.state) // see submitted values
-        this.props.updateContact(this.state);
+        this.props.updateContact(this.state, this.contactID);
+        // we add ID of parent contact (2nd parameter) as an identifier
         this.setState(initialState);
-        console.log(this.state);
+        //console.log(this.state);
+        //console.log(this.contactID)
     };
 
     render() {

@@ -44,7 +44,10 @@ class ContactList extends Component {
                                 <br/>
                                 &nbsp;
                                 <UpdateContact
-                                updateContact={this.props.updateContact}/>
+                                updateContact={this.props.updateContact}
+                                contactID = {contact.id}
+                                // contact id needs to be passed down, so that we can connect this contact to its updated values
+                                />
                             </li>
                         )
                     }
