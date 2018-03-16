@@ -77,9 +77,7 @@ class UpdateContact extends Component {
                         onChange={this.handleChange}/>
                     <br/>
 
-                    <button className={'button'}>
-                        Submit changes
-                    </button>
+                    <button>Submit changes</button>
                 </form>
             </React.Fragment>
         );

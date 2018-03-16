@@ -72,7 +72,7 @@ class AddContactForm extends Component {
                         onChange={this.handleChange}/>
                     <br/>
 
-                    <button className={'button'}>Add new contact</button>
+                    <button>Add new contact</button>
                 </form>
             </div>
         )
