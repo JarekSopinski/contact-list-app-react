@@ -15,21 +15,10 @@ class UpdateContact extends Component {
     handleChange = event => {
         const name = event.target.name;
         const value = event.target.value;
+
         const updatedContact = {};
-
-        const submitBtn = document.getElementById('submitBtn');
-        const inputName = document.getElementById('inputName');
-        const inputPhone = document.getElementById('inputPhone');
-        const inputEmail = document.getElementById('inputEmail');
-        const inputCategory = document.getElementById('inputCategory');
-
-        //Checking if user has filled all inputs (if their values return true).
-        //If every input has been filled, user can click submit button.
-        inputName.value && inputPhone.value && inputEmail.value && inputCategory.value ?
-            submitBtn.disabled = false : submitBtn.disabled = true;
-
-        //Passing values from input to component's state:
         updatedContact[name] = value;
+
         this.setState(updatedContact)
     };
 
@@ -38,6 +27,14 @@ class UpdateContact extends Component {
 
         const updatedContact = this.state;
         updatedContact.id = this.currentContact.id;
+
+        console.log(updatedContact);
+
+        // If user left some inputs empty updatedContact will keep old values:
+        if (!updatedContact.updatedName) {updatedContact.updatedName = this.props.currentContact.name}
+        if (!updatedContact.updatedPhone) {updatedContact.updatedPhone = this.props.currentContact.phone}
+        if (!updatedContact.updatedEmail) {updatedContact.updatedEmail = this.props.currentContact.email}
+        if (!updatedContact.updatedCategory) {updatedContact.updatedCategory = this.props.currentContact.category}
 
         this.props.updateContact(updatedContact);
         this.setState(initialState);
@@ -56,7 +53,6 @@ class UpdateContact extends Component {
                     <input
                         name="updatedName"
                         value={updatedName}
-                        id="inputName"
                         onChange={this.handleChange}/>
                     <br/>
 
@@ -64,7 +60,6 @@ class UpdateContact extends Component {
                     <input
                         name="updatedPhone"
                         value={updatedPhone}
-                        id="inputPhone"
                         onChange={this.handleChange}/>
                     <br/>
 
@@ -72,7 +67,6 @@ class UpdateContact extends Component {
                     <input
                         name="updatedEmail"
                         value={updatedEmail}
-                        id="inputEmail"
                         onChange={this.handleChange}/>
                     <br/>
 
@@ -80,14 +74,12 @@ class UpdateContact extends Component {
                     <input
                         name="updatedCategory"
                         value={updatedCategory}
-                        id="inputCategory"
                         onChange={this.handleChange}/>
                     <br/>
 
-                    <button
-                        id="submitBtn"
-                        disabled={true}
-                    >Submit changes</button>
+                    <button className={'button'}>
+                        Submit changes
+                    </button>
                 </form>
             </React.Fragment>
         );

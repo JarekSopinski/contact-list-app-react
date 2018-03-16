@@ -19,14 +19,11 @@ class AddContactForm extends Component {
 
     /*
     Above function can also be written like this (longer, but easier to understand):
-
     handleChange = event => {
     const name = event.target.name
     const value = event.target.value
-
     const patch = {}
     patch[name] = value
-
     this.setState(patch)
   }
      */
@@ -46,51 +43,36 @@ class AddContactForm extends Component {
             <div id={"AddContactForm"}>
                 <form onSubmit={this.handleSubmit}>
 
-
                     <span>Name:&nbsp;</span>
-                    <br/>
                     <input
                         name="newName"
                         value={newName}
                         onChange={this.handleChange}
                     />
-
                     <br/>
 
                     <span>Phone:&nbsp;</span>
-                    <br/>
                     <input
                         name="newPhone"
                         value={newPhone}
-                        onChange={this.handleChange}
-                    />
-
+                        onChange={this.handleChange}/>
                     <br/>
 
                     <span>E-mail:&nbsp;</span>
-                    <br/>
                     <input
                         name="newEmail"
                         value={newEmail}
-                        onChange={this.handleChange}
-                    />
-
+                        onChange={this.handleChange}/>
                     <br/>
 
                     <span>Categories:&nbsp;</span>
-                    <br/>
                     <input
                         name="newCategory"
                         value={newCategory}
-                        onChange={this.handleChange}
-                    />
-
-                    <br/>
+                        onChange={this.handleChange}/>
                     <br/>
 
-                    <button
-                        className={'button'}
-                    >Add new contact</button>
+                    <button className={'button'}>Add new contact</button>
                 </form>
             </div>
         )

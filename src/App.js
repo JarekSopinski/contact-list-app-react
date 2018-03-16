@@ -15,7 +15,7 @@ class App extends Component {
             {id: '4', name: 'Han Solo', phone: '444-444-444', email: 'han@gmail.com', category: '[smugglers][rebels]'},
             {id: '5', name: 'Lando Carlissian', phone: '555-555-555', email: 'lando@gmail.com', category: '[gamblers][rebels]'},
             {id: '6', name: 'Obi-wan Kenobi', phone: '777-777-777', email: 'kenobi@gmail.com', category: '[jedi][masters]'}
-            ] // indexes should be strings, not numbers, otherwise there will be problems with comparing
+        ] // indexes should be strings, not numbers, otherwise there will be problems with comparing
     };
 
     // CUSTOM FUNCTIONS

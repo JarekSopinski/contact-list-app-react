@@ -28,11 +28,6 @@ body {
   margin-bottom: 5px;
 }
 
-.addInput {
-  display: inline-block;
-  margin: 5px;
-}
-
 .contactList {
   display: flex;
   flex-flow: wrap;
