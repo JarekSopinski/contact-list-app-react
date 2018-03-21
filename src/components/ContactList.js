@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import UpdateContact from "./UpdateContact";
 
@@ -17,7 +18,7 @@ class ContactList extends Component {
         return (
             <ul className={"contactList"}>
                 {
-                    contacts.map(contact =>
+                    contacts.data.map(contact =>
                         <li key={contact.id}
                             className={"contactItem"}>
                             <strong>{contact.name}</strong>
@@ -53,5 +54,11 @@ class ContactList extends Component {
 
 }
 
-export default ContactList
+export default connect(
+
+    state => ({
+        contacts: state.contacts
+    })
+
+)(ContactList)
 

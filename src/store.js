@@ -1,7 +1,9 @@
 import { createStore, combineReducers } from 'redux'
 
-const reducer = combineReducers({
+import contacts from './state/contacts'
 
+const reducer = combineReducers({
+    contacts
 })
 
 const store = createStore(

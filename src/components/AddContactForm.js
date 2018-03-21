@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 const initialState = {
     newName: '',
@@ -30,7 +31,7 @@ class AddContactForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault(); // prevent reloading after submitting
-        //console.log(this.state) // see submitted values
+        //console.log(this.state); // see submitted values
         this.props.addContact(this.state);
         this.setState(initialState) // state and inputs are returned to initial (cleared)
     };
@@ -82,4 +83,21 @@ class AddContactForm extends Component {
 
 }
 
-export default AddContactForm
+export default connect(
+
+    state => ({
+        contacts: state.contacts
+    }),
+
+    dispatch => ({
+        addContact: ({ newName, newPhone, newEmail, newCategory }) =>
+            dispatch({
+                type: 'ADD_CONTACT',
+                newName,
+                newPhone,
+                newEmail,
+                newCategory
+            })
+    })
+)(AddContactForm)
+
