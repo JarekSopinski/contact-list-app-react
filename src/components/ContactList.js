@@ -35,7 +35,6 @@ class ContactList extends Component {
                             <br/>
                             &nbsp;
                             <UpdateContact
-                                updateContact={this.props.updateContact}
                                 currentContact = {contact}
                                 /*
                                 Current contact value needs to be passed to update, so that while updating
@@ -67,3 +66,5 @@ export default connect(
     })
 
 )(ContactList)
+
+

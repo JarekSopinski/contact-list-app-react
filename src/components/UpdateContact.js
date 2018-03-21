@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 const initialState = {
     updatedName: '',
@@ -86,4 +87,16 @@ class UpdateContact extends Component {
 
 }
 
-export default UpdateContact
+export default connect(null, dispatch => ({
+        updateContact: ( { id, updatedName, updatedPhone, updatedEmail, updatedCategory } ) =>
+            dispatch({
+                type: 'UPDATE_CONTACT',
+                id,
+                updatedName,
+                updatedPhone,
+                updatedEmail,
+                updatedCategory
+            })
+    })
+
+)(UpdateContact)

@@ -18,7 +18,6 @@ export default (state = initialState, action = {}) => {
 
         case 'ADD_CONTACT':
 
-            //const categoriesInBrackets = this.handleCategoriesNames(newCategory);
             const categoriesInBrackers = handleCategoriesNames(action.newCategory);
 
             return {
@@ -37,6 +36,31 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 data: state.data.filter(contact => contact.id !== action.contactId)
+            };
+
+        case 'UPDATE_CONTACT':
+
+            const categoriesInBrackets = handleCategoriesNames(action.updatedCategory);
+
+            // new object with updated values, which will replace old one:
+            const updatedContact = {
+                id: action.id,
+                name: action.updatedName,
+                phone: action.updatedPhone,
+                email: action.updatedEmail,
+                category: categoriesInBrackets
+            };
+
+            // creating an array of new (updated) objects; if ID test passes, old object is replaced with new one (updatedContact)
+            const updatedContacts = state.data.map(contact => contact.id === updatedContact.id ?
+                updatedContact
+                :
+                contact
+            );
+
+            return {
+                ...state,
+                data: updatedContacts
             };
 
         default:
