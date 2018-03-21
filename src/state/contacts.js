@@ -32,6 +32,13 @@ export default (state = initialState, action = {}) => {
                 })
             };
 
+        case 'REMOVE_CONTACT':
+
+            return {
+                ...state,
+                data: state.data.filter(contact => contact.id !== action.contactId)
+            };
+
         default:
             return state
     }

@@ -8,8 +8,6 @@ class ContactList extends Component {
     handleRemove = event => {
         const contactId = event.target.dataset.contactId;
         this.props.removeContact(contactId);
-        // removeContact() callback is parent's method, passed inside props,
-        // it updates parent's state (contact list) based on data send from child (this component)
     };
 
     render() {
@@ -58,7 +56,14 @@ export default connect(
 
     state => ({
         contacts: state.contacts
+    }),
+
+    dispatch => ({
+        removeContact: (contactId) =>
+            dispatch({
+                type: 'REMOVE_CONTACT',
+                contactId
+            })
     })
 
 )(ContactList)
-
