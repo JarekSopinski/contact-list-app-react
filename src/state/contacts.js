@@ -1,3 +1,5 @@
+import { handleCategoriesNames } from './utilityFunctions'
+
 const initialState = {
     data: [
         {id: '1', name: 'Luke Skywalker', phone: '111-111-111', email: 'luke@gmail.com', category: '[jedi][padawans][rebels]'},
@@ -10,9 +12,15 @@ const initialState = {
 };
 
 export default (state = initialState, action = {}) => {
+
+
     switch (action.type) {
 
         case 'ADD_CONTACT':
+
+            //const categoriesInBrackets = this.handleCategoriesNames(newCategory);
+            const categoriesInBrackers = handleCategoriesNames(action.newCategory);
+
             return {
                 ...state,
                 data: state.data.concat({
@@ -20,7 +28,7 @@ export default (state = initialState, action = {}) => {
                     name: action.newName,
                     phone: action.newPhone,
                     email: action.newEmail,
-                    category: action.newCategory
+                    category: categoriesInBrackers,
                 })
             };
 
@@ -28,3 +36,4 @@ export default (state = initialState, action = {}) => {
             return state
     }
 }
+
